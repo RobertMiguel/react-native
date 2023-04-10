@@ -44,7 +44,6 @@ export function Routes() {
             <Tab.Screen 
             name="Favorites" 
             component={Favorites}
-
             options={{
                 tabBarIcon: ({ color, size, focused }) => {
                     if(focused){
