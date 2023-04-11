@@ -1,13 +1,35 @@
+<<<<<<< HEAD
 import { useState } from 'react'
 import { View, Text, StyleSheet, SafeAreaView, TextInput, TouchableOpacity } from 'react-native'
+=======
+
+import { useState, useEffect } from 'react'
+import { View, Text, StyleSheet, SafeAreaView, TextInput, TouchableOpacity,
+FlatList} from 'react-native'
+>>>>>>> deb770c (receitas)
 import { Ionicons } from '@expo/vector-icons'
 import { Logo } from '../../components/logo'
+import { Foodlist } from '../../components/foodlist/index'
+
+import api from '../../services/api'
 
 export function Home() {
+
+    useEffect(() => {
+
+         async function fetchApi() {
+            const response = await api.get("/foods")
+            setFoods(response.data)
+        }
+
+        fetchApi()
+
+    }, [])
 
     // Nome do Estado, função para trocar a função que estiver dentro do "inputValue"
     // useState, começa com qual valor você quer dentro do inputValue
     const [inputValue, setInputValue] = useState("")
+    const [foods, setFoods] = useState([])
 
     function handleSearch() {
         
@@ -21,7 +43,7 @@ export function Home() {
             <Text style={styles.title}>Quem combina com você</Text>
 
             <View style={styles.form}>
-                <TextInput
+                <TextInput   
                 placeholder='Digite um nome da comida'
                 style={styles.input}
                 value={inputValue}
@@ -30,7 +52,16 @@ export function Home() {
                 <TouchableOpacity onPress={handleSearch}>
                     <Ionicons name='search' size={28} color='#4cbe6c' />
                 </TouchableOpacity>
+
             </View>
+
+            <FlatList 
+                data={foods}
+                keyExtractor={ (item) =>  String(item.id)}
+                renderItem={ ({ item }) => <Foodlist data={item}/>}
+                showsVerticalScrollIndicator={false}
+                />
+
         </SafeAreaView>
     )
 }
