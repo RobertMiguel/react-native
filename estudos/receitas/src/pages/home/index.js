@@ -1,12 +1,6 @@
-<<<<<<< HEAD
-import { useState } from 'react'
-import { View, Text, StyleSheet, SafeAreaView, TextInput, TouchableOpacity } from 'react-native'
-=======
-
 import { useState, useEffect } from 'react'
 import { View, Text, StyleSheet, SafeAreaView, TextInput, TouchableOpacity,
 FlatList} from 'react-native'
->>>>>>> deb770c (receitas)
 import { Ionicons } from '@expo/vector-icons'
 import { Logo } from '../../components/logo'
 import { Foodlist } from '../../components/foodlist/index'
