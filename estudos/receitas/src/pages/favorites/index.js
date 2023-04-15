@@ -36,7 +36,7 @@ export function Favorites() {
 
     return(
         <SafeAreaView style={styles.container}>
-            <Text style={styles.title}>Página de Favoritos</Text>
+            <Text style={styles.title}>Receitas Favoritas</Text>
 
             {receipes.length === 0 && (
                 <Text>Você ainda não tem nenhuma receita salva</Text>
