@@ -5,20 +5,22 @@ import { Ionicons } from '@expo/vector-icons'
 import { Logo } from '../../components/logo'
 import { Foodlist } from '../../components/foodlist/index'
 
+import { useNavigation } from '@react-navigation/native'
+
+
 import api from '../../services/api'
 
 export function Home() {
 
+    const navigation = useNavigation()
+
     useEffect(() => {
-
-         async function fetchApi() {
-            const response = await api.get("/foods")
-            setFoods(response.data)
+        async function fetchApi() {
+          const response = await api.get("/foods");
+          setFoods(response.data);
         }
-
-        fetchApi()
-
-    }, [])
+        fetchApi();
+      }, []);
 
     // Nome do Estado, função para trocar a função que estiver dentro do "inputValue"
     // useState, começa com qual valor você quer dentro do inputValue
@@ -26,7 +28,11 @@ export function Home() {
     const [foods, setFoods] = useState([])
 
     function handleSearch() {
-        
+        if(!inputValue) return
+
+        let input = inputValue
+        setInputValue("")
+        navigation.navigate("Search", { name: input })
     }
 
     return(

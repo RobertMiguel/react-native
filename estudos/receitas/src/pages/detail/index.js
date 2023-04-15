@@ -8,6 +8,8 @@ import { Ingredientes } from '../../components/ingredients'
 import { Instructions } from '../../components/instructions'
 import { isFavorite, saveFavorites, removeItem } from '../../utils/storage'
 
+
+
 export function Detail() {
 
     const route = useRoute()
