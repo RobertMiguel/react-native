@@ -1,7 +1,16 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import { SafeAreaView, View, Text, StyleSheet } from 'react-native'
 
-export default function GamesScreen({ navigation }) {
+import api from '../../services/api'
+
+useEffect(() => {
+    async function fetchApi() {
+        const response = await api.get('/games')
+    }
+    fetchApi()
+}, [])
+
+export default function GamesScreen() {
     return(
         <SafeAreaView style={styles.container}>
             <View>

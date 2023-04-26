@@ -1,3 +1,4 @@
+import { StyleSheet } from 'react-native'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import { Ionicons } from '@expo/vector-icons'
 
@@ -5,7 +6,7 @@ import HomeScreen from '../screen/Home'
 import GamesScreen from '../screen/Games'
 import AccountScreen from '../screen/Account'
 
-import StackRouter from './stackRouter'
+import StackRouter from './stackRouter.js'
 
 const Tab = createBottomTabNavigator()
 
@@ -13,6 +14,15 @@ export default function Routes() {
   return (
     <Tab.Navigator 
       screenOptions={({ route }) => ({
+        tabBarShowLabel: false,
+        tabBarLabelPosition: 'below-icon',
+        tabBarStyle: {
+          height: 60,
+          position: 'absolute',
+          bottom: 20,
+          borderRadius: 90,
+          marginHorizontal: 25
+        },
         tabBarIcon: ({ focused, color, size }) => {
           let iconName;
           
@@ -27,12 +37,12 @@ export default function Routes() {
           return <Ionicons name={iconName} size={size} color={color} />;
         },
         tabBarActiveTintColor: 'black',
-        tabBarInactiveTintColor: 'gray'
+        tabBarInactiveTintColor: 'gray',
       })}
     >
       <Tab.Screen
         name='Games'
-        component={ StackRouter }
+        children={() => <StackRouter component={ GamesScreen } />}
         options={{
           headerTitleStyle:{
             fontWeight: 'bold'
@@ -41,11 +51,11 @@ export default function Routes() {
       />
       <Tab.Screen
         name='Home'
-        component={ StackRouter }
+        component={ HomeScreen }
       />
       <Tab.Screen
         name='Account'
-        component={ StackRouter }
+        component={ AccountScreen }
       />
     </Tab.Navigator>
   )

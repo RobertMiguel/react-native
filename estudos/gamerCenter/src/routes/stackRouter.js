@@ -6,7 +6,7 @@ import AccountScreen from '../screen/Account'
 
 const Stack = createNativeStackNavigator()
 
-export default function StackRouter({ component, name }) {
+export default function StackRouter() {
     return(
             <Stack.Navigator>
                 <Stack.Screen 
