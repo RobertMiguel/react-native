@@ -8,7 +8,14 @@ const Stack = createNativeStackNavigator()
 
 export default function StackRouter() {
     return(
-            <Stack.Navigator>
+            <Stack.Navigator
+                screenOptions={({ route }) => ({
+                    headerStyle: {
+                        backgroundColor: '#3c3c3c'
+                    }
+                })}
+                
+            >
                 <Stack.Screen 
                     name='Games'
                     component={ GamesScreen }

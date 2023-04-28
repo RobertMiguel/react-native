@@ -1,4 +1,3 @@
-import { StyleSheet } from 'react-native'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import { Ionicons } from '@expo/vector-icons'
 
@@ -15,13 +14,25 @@ export default function Routes() {
     <Tab.Navigator 
       screenOptions={({ route }) => ({
         tabBarShowLabel: false,
+        headerTitleStyle: {
+          color: '#666666',
+          fontWeight: 'bold',
+          fontSize: 26
+        },
+        headerStyle: {
+          backgroundColor: '#3c3c3c',
+          borderBottomWidth: 0,
+        },
         tabBarLabelPosition: 'below-icon',
         tabBarStyle: {
           height: 60,
           position: 'absolute',
           bottom: 20,
           borderRadius: 90,
-          marginHorizontal: 25
+          marginHorizontal: 25,
+          backgroundColor: '#3c3c3c',
+          borderTopWidth: 0,
+          elevation: 0
         },
         tabBarIcon: ({ focused, color, size }) => {
           let iconName;
@@ -37,16 +48,13 @@ export default function Routes() {
           return <Ionicons name={iconName} size={size} color={color} />;
         },
         tabBarActiveTintColor: 'black',
-        tabBarInactiveTintColor: 'gray',
+        tabBarInactiveTintColor: '#666666',
       })}
     >
       <Tab.Screen
         name='Games'
         children={() => <StackRouter component={ GamesScreen } />}
         options={{
-          headerTitleStyle:{
-            fontWeight: 'bold'
-          }
         }}
       />
       <Tab.Screen
