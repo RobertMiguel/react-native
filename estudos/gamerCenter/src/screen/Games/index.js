@@ -32,14 +32,13 @@ export default function GamesScreen() {
                     <Ionicons name='search' size={28} color='#666666'/>
                 </TouchableOpacity>
             </View>
-
-            <FlatList
-                data={games}
-                keyExtractor={(item) => String(item.id)}
-                renderItem={({item}) => <GameList data={item}/>}
-                showsVerticalScrollIndicator={false}
-            />
-
+                <FlatList
+                    data={games}
+                    keyExtractor={(item) => String(item.id)}
+                    renderItem={({item}) => <GameList data={item}/>}
+                    showsVerticalScrollIndicator={false}
+                    
+                />
         </SafeAreaView>
     )
 }
