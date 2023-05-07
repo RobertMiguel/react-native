@@ -5,11 +5,11 @@ Text,
 Heading,
 VStack,
 Input,
+Pressable,
 Button } from 'native-base';
 import React from 'react';
 import Colors from '../color';
 import { MaterialIcons, Ionicons } from '@expo/vector-icons';
-import { Pressable } from 'react-native';
 
 function LoginScreen() {
     return(
@@ -41,6 +41,7 @@ function LoginScreen() {
                         placeholder="user@gmail.com"
                         w="70%"
                         pl={2}
+                        type="text"
                         color={Colors.main}
                         borderBottomColor={Colors.underline}
                     />

@@ -1,11 +1,10 @@
-import { StatusBar } from 'expo-status-bar';
-import LoginScreen from './src/Screens/LoginScreen'
+import RegisterScreen from './src/Screens/RegisterScreen';
 import { NativeBaseProvider } from 'native-base';
 
 export default function App() {
   return (
     <NativeBaseProvider>
-      <LoginScreen />
+      <RegisterScreen />
     </NativeBaseProvider>
   );
 }
