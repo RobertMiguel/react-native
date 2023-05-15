@@ -30,7 +30,7 @@ const Swiper = () => {
 const renderItem = (data) => {
     <Pressable>
         <Box ml={6} mb={3}>
-            <HStack alignItems="center" bg={Colors.white} rounded={10} overflow="hidden">
+            <HStack alignItems="center" bg={Colors.white} shadow={1} rounded={10} overflow="hidden">
                 <Text>Item</Text>
             </HStack>
         </Box>
