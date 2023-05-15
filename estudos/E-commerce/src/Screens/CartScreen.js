@@ -1,7 +1,7 @@
 import { View, Text, Box, Center, ScrollView } from 'native-base';
 import React from 'react';
 import Colors from '../color';
-import CartEmpyt from '../Components/CartEmpyt';
+import CartIterms from '../Components/CartIterms';
 
 function CartScreen() {
     return(
@@ -12,11 +12,13 @@ function CartScreen() {
                     Cart
                 </Text>
             </Center>
+
+            <CartIterms/>
+
             {/* IF CART IS EMPYT */}
             {/* <CartEmpyt/> */}
             {/* CART ITEMS */}
             <ScrollView showsVerticalScrollIndicator={false}>
-                
             </ScrollView>
         </Box>
     )
